@@ -1,31 +1,26 @@
-import React from 'react';
+import { Box, Button, Flex } from "@chakra-ui/react";
+import { type FC, useState } from "react";
 
-import { Link } from '@mui/material';
-import { Elderly } from '@mui/icons-material';
+const App: FC = () => {
+  const [count, setCount] = useState(0);
 
-import './App.css';
+  const handleCounterClick = (): void => {
+    setCount((count) => count + 1);
+  };
 
-interface Props {
-    name: string;
-}
-
-const App = ({ name }: Props): JSX.Element => (
-    <div className="App">
-        <header className="App-header">
-            <Elderly fontSize="large" className="App-logo" />
-            <p>
-                Hello {name} !
-                Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <Link
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </Link>
-        </header>
-    </div>
-);
+  return (
+    <Flex alignItems="center" flexDir="column">
+      <Box as="span" textDecor="line-through">
+        Webpack
+      </Box>
+      <h1>Vite + React + ChakraUI</h1>
+      <div>
+        <Button bgColor="darkcyan" onClick={() => handleCounterClick()}>
+          count is {count}
+        </Button>
+      </div>
+    </Flex>
+  );
+};
 
 export default App;
