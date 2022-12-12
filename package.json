@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "rm -rfv build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src"
