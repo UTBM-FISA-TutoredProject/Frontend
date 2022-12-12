@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './App';
+import { HashRouter } from 'react-router-dom';
 
-import './index.css';
+import App from './App';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement,
@@ -11,6 +11,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App name="world" />
+        {/* Pour être déployé sur des hébergeurs static style GitHub pages */}
+        {/* Peut être facilement changer par BrowserRouter si plus utile */}
+        <HashRouter>
+            <App />
+        </HashRouter>
     </React.StrictMode>,
 );

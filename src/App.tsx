@@ -1,31 +1,24 @@
 import React from 'react';
+import {
+    Routes,
+    Route,
+} from 'react-router';
 
-import { Link } from '@mui/material';
-import { Elderly } from '@mui/icons-material';
+import {
+    Marketplace,
+    PageNotFound,
+    Header,
+    Dashboard,
+} from './views';
 
-import './App.css';
-
-interface Props {
-    name: string;
-}
-
-const App = ({ name }: Props): JSX.Element => (
-    <div className="App">
-        <header className="App-header">
-            <Elderly fontSize="large" className="App-logo" />
-            <p>
-                Hello {name} !
-                Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <Link
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </Link>
-        </header>
-    </div>
+const App = () => (
+    <Routes>
+        <Route path="/" element={<Header />}>
+            <Route index element={<Dashboard />} />
+            <Route path="marketplace" element={<Marketplace />} />
+            <Route path="*" element={<PageNotFound />} />
+        </Route>
+    </Routes>
 );
 
 export default App;
